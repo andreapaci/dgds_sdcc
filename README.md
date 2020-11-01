@@ -2,7 +2,7 @@
 Distributed Gathering Detection System
 Andrea Paci - 0286387
 
-# H1 Progetto SDCC 2019/2020 - Andrea Paci 
+## Progetto SDCC 2019/2020 - Andrea Paci 
 
 I requisiti per eseguire l'applicativo e istanziarlo su AWS sono:
  - Macchina Unix dotata di terminale
@@ -49,16 +49,16 @@ Il primo esporta i parametri di configurazione su un Database DynamoDB. Questi v
 (La spiegazione degli stessi è presente nella cartella "Sorgente/broker/broker-configuration.go"
 
 Il secondo invece sono configurazioni che vengono salvate in locale:
-	- **LoggerHost**: rappresenta la combinazione hostname:porta per connettersi al logger remoto per inviare le informazioni
-	- **AwsBroker**: Hostname del broker
-	- **RetryDelay**: Intervallo di tempo tra un tentativo di connessione e un altro in caso di fallimenti
-	- **PoistDelay**: Intervallo di attesa usato dal Subscriber per inviare l'aggiornamento della posizione 
-	- **OpDelay**: Intervallo di tempo usato per ritardare alcune operazioni 
-	- **SimulationTime**: tempo di simulazione del publisher/subscriber nel caso di una esecuzione non interattiva
-	- **RcvMessDelay**: tempo tra una interrogazione e un altra a SQS
-	- **PollingTime**: tempo di polling per la ricezione (vedere Long Polling SQS per maggiori informazioni
-	- **MaxRcvMessage**: numero di messaggi massimo che si possono ricevere con una singola interrogazione a SQS
-	- **Region**: regione di AWS
+- **LoggerHost**: rappresenta la combinazione hostname:porta per connettersi al logger remoto per inviare le informazioni
+- **AwsBroker**: Hostname del broker	
+- **RetryDelay**: Intervallo di tempo tra un tentativo di connessione e un altro in caso di fallimenti
+- **PoistDelay**: Intervallo di attesa usato dal Subscriber per inviare l'aggiornamento della posizione 
+- **OpDelay**: Intervallo di tempo usato per ritardare alcune operazioni 
+- **SimulationTime**: tempo di simulazione del publisher/subscriber nel caso di una esecuzione non interattiva
+- **RcvMessDelay**: tempo tra una interrogazione e un altra a SQS
+- **PollingTime**: tempo di polling per la ricezione (vedere Long Polling SQS per maggiori informazioni
+- **MaxRcvMessage**: numero di messaggi massimo che si possono ricevere con una singola interrogazione a SQS
+- **Region**: regione di AWS
 
 
 E' possibile eseguire il publisher/subscriber in modalità sia interattiva che non. Per fare ciò è necessario porsi nelle cartelle contenutenenti il codice sorgente del publisher/subscriber ed eseguire: 
