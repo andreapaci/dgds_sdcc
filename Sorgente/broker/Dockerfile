@@ -14,10 +14,11 @@ RUN apk update && \
     apk add git  && \
     go get github.com/aws/aws-sdk-go/aws/... && \
     go get github.com/aws/aws-sdk-go/service/dynamodb/... && \
-    go get github.com/aws/aws-sdk-go/service/sqs/...
+    go get github.com/aws/aws-sdk-go/service/sqs/... && \
+    go get -u github.com/gorilla/mux && \
+    go get github.com/rs/cors	
 
 ADD common /go/src/common/
-ADD github.com /go/src/github.com
 
 EXPOSE 80
 RUN go build -o broker
