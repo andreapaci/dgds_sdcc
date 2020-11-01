@@ -15,8 +15,9 @@ Inoltre per eseguire la dashboard di controllo è necessario avere un browser ag
  
 Se non si riesce a visualizzare/utilizzare correttamente la dashboard con il browser, è possibile comunque emulare lo stesso comportamento usando un client per effettuare chiamate API REST
 
-Innanzitutto è necessario copiare le **credenziali di accesso ad AWS nelle variabili d'ambiente nei Dockerfile** presenti nelle cartelle "broker", "publisher" e "subscriber" presenti in "Sorgente". 
-*NOTA BENE: l'account (o il ruolo IAM) selezionato deve essere ROOT o deve possedere i pieni permessi per:
+Innanzitutto è necessario copiare le **credenziali di accesso ad AWS nelle variabili d'ambiente nei Dockerfile** presenti nelle cartelle "broker", "publisher" e "subscriber" presenti in "Sorgente".
+
+*NOTA BENE: l'account (o il ruolo IAM) selezionato deve essere ROOT o deve possedere i pieni permessi per:*
  - Elastic Beanstalk
  - Amazon SQS
  - DynamoDB
@@ -36,8 +37,9 @@ Per connettersi al logger remoto, il quale riporterà gli eventi del sistema e p
 
 e successivamente è necessario inviare il carattere "l" per notificare il fatto di entrare in modalità listening
 
-*NOTA: "hostremotelogger" viene fornito solo dopo che si istanzia il logger su Elastic Beanstalk
-*NOTA#2 A causa della politica del load balancer imposta sulle connessioni persistenti, la connessione con il remote logger terminerà in un tempo breve. E' sufficiente riconnettersi ed inviare il carattere "l"
+*NOTA: "hostremotelogger" viene fornito solo dopo che si istanzia il logger su Elastic Beanstalk*
+
+*NOTA#2 A causa della politica del load balancer imposta sulle connessioni persistenti, la connessione con il remote logger terminerà in un tempo breve. E' sufficiente riconnettersi ed inviare il carattere "l"*
 
 
 Esistono due file di configurazione:
@@ -64,6 +66,7 @@ Il secondo invece sono configurazioni che vengono salvate in locale:
 E' possibile eseguire il publisher/subscriber in modalità sia interattiva che non. Per fare ciò è necessario porsi nelle cartelle contenutenenti il codice sorgente del publisher/subscriber ed eseguire: 
 
 > $ docker build -t nome_applicazione .
+
 > $ docker run nome_applicazione
 
 Per eseguire gli applicativi in maniera interattiva, cambiare il secondo parametro presente nei rispedivi Dockerfile con il carattere "i".
