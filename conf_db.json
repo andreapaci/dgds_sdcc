@@ -1,0 +1,53 @@
+{
+
+	"configuration": [
+	{
+		"PutRequest" : {
+			"Item" : {
+				"FieldName" : {"S": "subTableName"},
+				"FieldValue" : {"S": "subscriber"}
+			}
+		}
+	},
+	{
+		"PutRequest" : {
+			"Item" : {
+				"FieldName" : {"S": "positive_radius"},
+				"FieldValue" : {"S": "2500"}
+			}
+		}
+	},
+	{
+		"PutRequest" : {
+			"Item" : {
+				"FieldName" : {"S": "mq_threshold"},
+				"FieldValue" : {"S": "0.7"}
+			}
+		}
+	},
+	{
+		"PutRequest" : {
+			"Item" : {
+				"FieldName" : {"S": "delay_sqs_request"},
+				"FieldValue" : {"S": "20"}
+			}
+		}
+	},
+	{
+		"PutRequest" : {
+			"Item" : {
+				"FieldName" : {"S": "delay_load_config"},
+				"FieldValue" : {"S": "120"}
+			}
+		}
+	},
+	{
+		"PutRequest" : {
+			"Item" : {
+				"FieldName" : {"S": "globalSqsQueue"},
+				"FieldValue" : {"S": "none"}
+			}
+		}
+	}
+	]
+}

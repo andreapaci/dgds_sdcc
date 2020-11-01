@@ -1,0 +1,12 @@
+{
+  "LoggerHost"      : "xxxxxx:60001",
+  "AwsBroker"       : "yyyyyy" ,
+  "RetryDelay"      : 10,
+  "PositDelay"      : 20,
+  "OpDelay"         : 20,
+  "SimulationTime"  : 100,
+  "RcvMessDelay"    : 10,
+  "MaxRcvMessage"   : 10,
+  "PollingTime"     : 20,
+  "Region"          : "us-east-1"
+}

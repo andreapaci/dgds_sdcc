@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  
+  <meta charset="utf-8">
+  <title>Progetto</title>
+
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+
+ <!-- Script PostMessage per il passaggio dei parametri al "iframe"-->
+<body onload = " window.addEventListener('message', function (e) { host = e.data; }, false);">
+		
+	 <!-- Frame interno -->	
+	<div class="internal-frame" style="padding-top:60">
+		<div class="req textfield">
+			<div class="input-goup mb-3">
+			  
+				<!-- Descrizione di come utilizzare l'interfaccia -->
+				<div style="padding-left:1em; margin-bottom: 5px; padding-top: 35px">
+<span style="padding-left:80px; font-size:30px;"><b>Istruzioni</b></span><br><br>								
+					<b> - Registrazione publisher: </b>Non è necessario registrare un publisher per inviare messaggi, ma è indispensabile uno scambio di informazioni iniziale con il broker (mediante API REST) per ottenere l'URL della coda dove si deve mandare il messaggio. <br>
+				</div>
+				
+				
+				<!-- Bottoni per eseguire le operazioni -->
+				<div class="input-group-append" style="display:inline">
+					<button class="btn btn-dark" type="button" onclick = "getQueue()" style="margin-right:25px; margin-top:10px;">Ottieni parametri</button>  
+				</div>
+				
+			</div>
+			<!-- Text area dove viene presentato l'output della richiesta -->
+			<!-- Text input per il valore del parametro -->
+			<div style="padding-left:1em; margin-top:60px; margin-bottom: 12px"> <b> Output della richiesta </b> </div>
+			<textarea type="text" rows="17" id="output-text" class="form-control" placeholder="Output della richiesta" readonly style="resize: none;" aria-label="Recipient's username" aria-describedby="basic-addon2" ;></textarea><br/>
+
+			  
+		</div>
+	</div>
+	<script>
+	
+		//Nome dell'host
+		var host;
+		
+		//Funzione che recupera la coda per l'invio dei messaggi
+		const getQueue = async () => {
+		
+			var requestType = "GET";
+			var requestUri = 'http://' + host  + "/publisher";
+			var requestBody = null;
+			
+			//Esecuzione della richiesta
+			const response = await fetch(requestUri, {
+			
+				method : requestType,
+				body : requestBody
+		  
+			});
+			
+			//Formattazione e presentazione della risposta
+			response.json().then(function (json) {
+				document.getElementById("output-text").value = JSON.stringify(json, null, 1).replace(/{/g,"").replace(/}/g,"").
+				replace(/\[/g,"").replace(/\]/g,"").replace(/"/g,"").replace(/,/g,"").replace(/\n \n/g,"\n").
+				replace(/FieldName: /g, "").replace(/\n  FieldValue: /g, ": ");
+			});
+			
+		}
+		
+		
+		
+		
+	</script>
+  
+  
+</body>
+
+</html>
